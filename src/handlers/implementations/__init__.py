@@ -1,0 +1,3 @@
+from .downloader_handler import DownloadHandler
+from .file_extractor_handler import FileExtractorHandler
+from .game_searcher_handler import GameSearcherHandler
