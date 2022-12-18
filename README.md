@@ -9,7 +9,15 @@ The idea of this project came up when i got in trouble to install the game ISOs 
 ## installation
 It's compatible with python3.10+ (It just deals with PS2 games for  now.)
 
-### linux  OS
+### Windows
+
+```txt
+git clone https://github.com/lipe14-ops/isostore
+cd isostore
+pip install -r requirements.txt
+```
+It's not fully compatible. So you need to run it manualy.
+### Linux  OS
 
 ```txt
 git clone https://github.com/lipe14-ops/isostore
@@ -28,7 +36,9 @@ first you need to create a `config.json` file in the directory `.config/isostore
     "extraction_dir":  "YOUR EXTRACTION DIRRECTORY"
 }
 ```
-now run the commnad `isostore`.  
+If you are a Windows keep `config.json` file inside the `isostore` folder.
+
+On linux run the command `isostore`. On windows OS run the command `python src/main.py` inside the `isostore`
 
 ### example
 ![](./images/Screenshot_20221207_234002.png)

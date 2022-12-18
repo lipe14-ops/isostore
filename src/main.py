@@ -2,16 +2,23 @@ from controllers import GameInstallerController
 from handlers import GameSearcherHandler
 from services import ConfigLoadService
 from pathlib import Path
+import platform
 
-MIRROR_LIST_PATH = Path("/opt/isostore/res/games-mirror-list.csv")
-CONFIG_FILE_PATH = Path('~/.config/isostore/config.json').expanduser()
+LINUX_MIRROR_LIST_PATH = Path('/opt/isostore/res/games-mirror-list.csv')
+LINUX_CONFIG_FILE_PATH = Path('~/.config/isostore/config.json').expanduser()
+
+WINDOWS_MIRROR_LIST_PATH = Path('./res/games-mirror-list.csv')
+WINDOWS_CONFIG_FILE_PATH = Path('./config.json')
 
 
 def main() -> None:
-    config_loader = ConfigLoadService(CONFIG_FILE_PATH)
+    config_file_path = LINUX_CONFIG_FILE_PATH if platform.system() == 'Linux' else WINDOWS_CONFIG_FILE_PATH 
+    mirror_file_path = LINUX_MIRROR_LIST_PATH if platform.system() == 'Linux' else WINDOWS_MIRROR_FILE_PATH  
+
+    config_loader = ConfigLoadService(config_file=config_file_path)
     user_config = config_loader.run()
 
-    if not CONFIG_FILE_PATH.is_file():
+    if not config_file_path.is_file():
         print("you must have a config file.")
         exit(1)
 
@@ -19,8 +26,8 @@ def main() -> None:
         print("your config file must have valid directories.")
         exit(1)
 
-    installer=GameInstallerController(user_config)
-    searcher=GameSearcherHandler(MIRROR_LIST_PATH)
+    installer=GameInstallerController(config=user_config)
+    searcher=GameSearcherHandler(repository_path=mirror_file_path)
 
     print("[0] - search\n[1] - download\n[2] - quit")
     while True:
