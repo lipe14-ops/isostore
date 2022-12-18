@@ -1,14 +1,15 @@
 from controllers.controller_interface import IController
 from entities import GameEntityDTO
+import utils.strings
 from handlers import DownloadHandler, FileExtractorHandler
 
 class GameInstallerController(IController):
     def __init__(self, download_dir: str = '.', extraction_dir: str = '.') -> None:
-        self._download_dir = download_dir + '/' if not download_dir.endswith('/') else download_dir
-        self._extraction_dir = extraction_dir
+        self._download_dir = utils.strings.sanitize_path_string(download_dir)
+        self._extraction_dir = utils.strings.sanitize_path_string(extraction_dir)
     
     def handle(self, game: GameEntityDTO) -> None:
-        game_filename = f"{game.name.replace(' ', '')}.7z"
+        game_filename = utils.strings.sanitize_zipped_filename(game.name, '.7z')
 
         download_handler = DownloadHandler(
             file_url=game.url, 
