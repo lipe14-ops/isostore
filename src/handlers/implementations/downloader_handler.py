@@ -11,7 +11,7 @@ class DownloadHandler(IHandler):
     def execute(self, download_dir: str = '.') -> None:
         response =  requests.get(self._file_url, stream=True)
 
-        download_dir = utils.strings.sanitiz_path_string(download_dir)
+        download_dir = utils.strings.sanitize_path_string(download_dir)
 
         with open(f"{download_dir}{self.filename}", "wb") as file:
             shutil.copyfileobj(response.raw, file)

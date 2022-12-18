@@ -19,7 +19,7 @@ def main() -> None:
         print("your config file must have valid directories.")
         exit(1)
 
-    installer=GameInstallerController(user_config.download_dir, user_config.extraction_dir)
+    installer=GameInstallerController(user_config)
     searcher=GameSearcherHandler(MIRROR_LIST_PATH)
 
     print("[0] - search\n[1] - download\n[2] - quit")
