@@ -15,12 +15,12 @@ def main() -> None:
     config_file_path = LINUX_CONFIG_FILE_PATH if platform.system() == 'Linux' else WINDOWS_CONFIG_FILE_PATH 
     mirror_file_path = LINUX_MIRROR_LIST_PATH if platform.system() == 'Linux' else WINDOWS_MIRROR_LIST_PATH  
 
-    config_loader = ConfigLoadService(config_file=config_file_path)
-    user_config = config_loader.run()
-
     if not config_file_path.is_file():
         print("you must have a config file.")
         exit(1)
+
+    config_loader = ConfigLoadService(config_file=config_file_path)
+    user_config = config_loader.run()
 
     if not user_config.is_valid():
         print("your config file must have valid directories.")
