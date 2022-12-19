@@ -4,7 +4,7 @@
 make your emulator games easy to install.
 
 ## description
-The idea of this project came up when i got in trouble to install the game ISOs cuz it takes a really long time to find the game, download the zipped file and then extract it in the right folder. So i decided to create this time saver to download games `.iso` !!!  (+60 games available)
+The idea of this project came up when i got in trouble to install the game ISOs cuz it takes a really long time to find the game, download the zipped file and then extract it in the right folder. So i decided to create this time saver to download games `.iso` !!!  (+300 games available)
 
 ## installation
 It's compatible with python3.10+ (It just deals with PS2 games for  now.)
