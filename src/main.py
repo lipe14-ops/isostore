@@ -13,7 +13,7 @@ WINDOWS_CONFIG_FILE_PATH = Path('./config.json')
 
 def main() -> None:
     config_file_path = LINUX_CONFIG_FILE_PATH if platform.system() == 'Linux' else WINDOWS_CONFIG_FILE_PATH 
-    mirror_file_path = LINUX_MIRROR_LIST_PATH if platform.system() == 'Linux' else WINDOWS_MIRROR_FILE_PATH  
+    mirror_file_path = LINUX_MIRROR_LIST_PATH if platform.system() == 'Linux' else WINDOWS_MIRROR_LIST_PATH  
 
     config_loader = ConfigLoadService(config_file=config_file_path)
     user_config = config_loader.run()
