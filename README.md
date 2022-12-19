@@ -11,12 +11,11 @@ It's compatible with python3.10+ (It just deals with PS2 games for  now.)
 
 ### Windows
 
+first you need to download the zipped file.
 ```txt
-git clone https://github.com/lipe14-ops/isostore
-cd isostore
-pip install -r requirements.txt
+curl -O https://raw.githubusercontent.com/lipe14-ops/isostore/master/isostore_windows.zip
 ```
-It's not fully compatible. So you need to run it manualy.
+then extract it and DO NOT PUT THESE FILES IN SEPARETED FOLDERS.
 ### Linux  OS
 
 ```txt
@@ -29,16 +28,16 @@ chmod +x linux_installer.sh
 ## usage
 
 ### configuration
-first you need to create a `config.json` file in the directory `.config/isostore` and add you config following this pattern: 
+first you need to create a `config.json` file config following this pattern: 
 ```json
 {
     "download_dir":  "YOUR DOWNLOAD DIRECTORY",
     "extraction_dir":  "YOUR EXTRACTION DIRRECTORY"
 }
 ```
-If you are a Windows keep `config.json` file inside the `isostore` folder.
+If you are a Windows user keep `config.json` file inside the same folder of the `.exe`. But on linux put it inside the `.config/isostore` directory.
 
-On linux run the command `isostore`. On windows OS run the command `python src/main.py` inside the `isostore`
+On linux run the command `isostore`. On windows OS run the executable.
 
 ### example
 ![](./images/Screenshot_20221207_234002.png)
